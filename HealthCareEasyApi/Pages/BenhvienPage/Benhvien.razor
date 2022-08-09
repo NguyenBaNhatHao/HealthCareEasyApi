@@ -1,0 +1,49 @@
+﻿@page "/benhvien"
+@using System.Data
+@using System.IO
+@using Microsoft.Extensions.Logging
+@using System.Text.Json
+@using System.Net.Http.Headers
+@using System.Linq
+@using Newtonsoft.Json
+@using HealthCareEasyApi.Models
+@inject IBenhvienService _benhvienServices
+<h3>Benhvien</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Benhvien_Id</th>
+            <th>Tên benh vien</th>
+            <th>Thong tin</th>
+            <th>Gia tien</th>
+            <th>Dich vu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var benhvien in _benhvienServices.Benhvienservices)
+        {
+            <tr>
+                <td>@benhvien.Benhvien_Id</td>
+                <td>@benhvien.Tenbenhvien</td>
+                <td>@benhvien.Thongtin</td>
+                <td>@benhvien.Giatien</td> 
+                        
+            </tr>
+        }
+         @*@foreach(DataRow row in dataTable.Rows)
+            {
+                <tr>
+                    @foreach(DataColumn col in dataTable.Columns)
+                        {
+                            <td>@row[col.ColumnName].ToString()</td>                            
+                        }                        
+                </tr>
+            }*@
+        </tbody>
+</table>
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await _benhvienServices.GetBenhvienDetail();
+    }
+}
