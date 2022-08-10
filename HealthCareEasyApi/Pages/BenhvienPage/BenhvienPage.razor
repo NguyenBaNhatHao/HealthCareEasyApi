@@ -8,7 +8,9 @@
 @using Newtonsoft.Json
 @using HealthCareEasyApi.Models
 @inject IBenhvienService _benhvienServices
+@inject NavigationManager NavigationManager
 <h3>Benhvien</h3>
+<button class="btn btn-primary" @onclick="CreateAndEditSinhvien">Add sinh vien</button>
 <table class="table">
     <thead>
         <tr>
@@ -27,7 +29,7 @@
                 <td>@benhvien.Tenbenhvien</td>
                 <td>@benhvien.Thongtin</td>
                 <td>@benhvien.Giatien</td> 
-                        
+                 <td>@benhvien.Dichvu.Tendichvu</td> 
             </tr>
         }
          @*@foreach(DataRow row in dataTable.Rows)
@@ -45,5 +47,9 @@
     protected override async Task OnInitializedAsync()
     {
         await _benhvienServices.GetBenhvienDetail();
+    }
+    void CreateAndEditSinhvien()
+    {
+        NavigationManager.NavigateTo("/benhviendetail");
     }
 }

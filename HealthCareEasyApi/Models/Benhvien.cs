@@ -4,7 +4,7 @@ namespace HealthCareEasyApi.Models
     public class Benhvien
     {
         [Key]
-        [Required]
+        
         public int Id { get; set; }
         public string? Benhvien_Id { get; set; }
         public string? Tenbenhvien { get; set; }

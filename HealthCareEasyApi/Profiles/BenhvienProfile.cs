@@ -18,8 +18,9 @@ namespace HealthCareEasyApi.Profiles
                 .ForMember(dest => dest.Dichvu, act => act.MapFrom(src => src.dichvu.DichvuId))
                 .ForMember(dest => dest.Dichvu, act => act.MapFrom(src => src.dichvu.Tendichvu));
             CreateMap<Benhvien, BenhvienDTO>();
-            
-
+            CreateMap<Models.Dichvu, DichvuDTO>()
+                .ForMember(dest => dest.Tendichvu, act => act.MapFrom(src => src.Tendichvu))
+                .ForMember(dest => dest.DichvuId, act => act.MapFrom(src => src.DichvuId));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using HealthCareEasyApi.Models;
 using HealthCareEasyApi.Data;
+using Newtonsoft.Json;
 
 namespace HealthCareEasyApi.Services.SinhvienServices
 {
@@ -19,10 +20,12 @@ namespace HealthCareEasyApi.Services.SinhvienServices
         public async Task GetBenhvienDetail()
         {
             var resutl = await _http.GetFromJsonAsync<List<Benhvien>>("api/benhvien");
+            Console.WriteLine(resutl);
             if (resutl != null)
             {
                 Benhvienservices = resutl;
             }
+            
         }
     }
 }

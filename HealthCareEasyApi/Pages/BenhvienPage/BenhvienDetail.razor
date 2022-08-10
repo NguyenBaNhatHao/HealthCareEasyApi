@@ -1,0 +1,48 @@
+﻿@page "/BenhvienDetail"
+@using HealthCareEasyApi.Models
+
+@inject IBenhvienService BenhvienServices
+@inject NavigationManager NavigationManager
+<PageTitle>Create a benh vien</PageTitle>
+    <h3>Create a benh vien</h3>
+<EditForm Model="benhvien" OnSubmit="HandleSubmit">
+    <div>
+        <label for="Benhvien_Id">Benhvien_Id</label>
+        <InputText id="Benhvien_Id" @bind-Value="benhvien.Benhvien_Id" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="hoten">Tên học sinh</label>
+        <InputText id="hoten" @bind-Value="benhvien.Tenbenhvien" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="Thongtin">Thongtin</label>
+        <InputText id="Thongtin" @bind-Value="benhvien.Thongtin" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="Giatien">Gia tien</label>
+        <InputText id="Giatien" @bind-Value="benhvien.Giatien" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="Image">Image</label>
+        <InputText id="Image" @bind-Value="benhvien.Image" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="DichvuId">DichvuId</label>
+        <InputNumber id="DichvuId" @bind-Value="benhvien.DichvuId" class="form-control"></InputNumber>
+    </div>
+   
+    <br />
+    @*<button type="submit" class="btn btn-primary">@btnText</button>
+    <button type="button" class="btn btn-danger" @onclick="DeleteSinhvien">Delete</button>
+    <button type="button" class="btn btn-danger" @onclick="Cancel">Cancel</button>*@
+</EditForm>
+@code {
+    [Parameter]
+    public int? Id { get; set; }
+    Benhvien benhvien = new Benhvien();
+    string btnText = string.Empty;
+    async Task HandleSubmit()
+    {
+        
+    }
+}

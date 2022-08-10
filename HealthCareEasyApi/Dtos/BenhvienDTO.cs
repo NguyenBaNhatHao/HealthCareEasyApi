@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
+ 
 namespace HealthCareEasyApi.Dtos
 {
     public class BenhvienDTO
@@ -10,8 +11,8 @@ namespace HealthCareEasyApi.Dtos
         public string? Thongtin { get; set; }
         public string? Giatien { get; set; }
         public string? Image { get; set; }
-        public int DichvuId { get; set; }
-        public string? Tendichvu { get; set; }
+        public int? DichvuId { get; set; }
+        public HealthCareEasyApi.Models.Dichvu dichvu { get; set; }
         
     }
 }
