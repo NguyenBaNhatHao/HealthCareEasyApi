@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace HealthCareEasyApi.Models
 {
     public class Dichvu
     {
-        [Required]
-        public int DichvuId { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int? DichvuId { get; set; }
         public string? Tendichvu { get; set; }
-        public ICollection<Benhvien> Benhviens { get; set; }
+
     }
 }
