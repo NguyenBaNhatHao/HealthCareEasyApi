@@ -11,8 +11,8 @@
         <InputText id="Benhvien_Id" @bind-Value="benhvien.Benhvien_Id" class="form-control"></InputText>
     </div>
     <div>
-        <label for="hoten">Tên học sinh</label>
-        <InputText id="hoten" @bind-Value="benhvien.Tenbenhvien" class="form-control"></InputText>
+        <label for="tenbenhvien">Tên benh vien</label>
+        <InputText id="tenbenhvien" @bind-Value="benhvien.Tenbenhvien" class="form-control"></InputText>
     </div>
     <div>
         <label for="Thongtin">Thongtin</label>
@@ -27,13 +27,13 @@
         <InputText id="Image" @bind-Value="benhvien.Image" class="form-control"></InputText>
     </div>
     <div>
-        <label for="DichvuId">DichvuId</label>
-        <InputNumber id="DichvuId" @bind-Value="benhvien.DichvuId" class="form-control"></InputNumber>
+        <label for="dichvuId">dichvuId</label>
+        <InputNumber id="dichvuId" @bind-Value="benhvien.DichvuId" class="form-control"></InputNumber>
     </div>
-   
+    
     <br />
-    @*<button type="submit" class="btn btn-primary">@btnText</button>
-    <button type="button" class="btn btn-danger" @onclick="DeleteSinhvien">Delete</button>
+    <button type="submit" class="btn btn-primary">@btnText</button>
+    @*<button type="button" class="btn btn-danger" @onclick="DeleteSinhvien">Delete</button>
     <button type="button" class="btn btn-danger" @onclick="Cancel">Cancel</button>*@
 </EditForm>
 @code {
@@ -41,8 +41,15 @@
     public int? Id { get; set; }
     Benhvien benhvien = new Benhvien();
     string btnText = string.Empty;
+    protected override async Task OnInitializedAsync()
+    {
+        btnText = Id == null ? "Save" : "Update";
+    }
     async Task HandleSubmit()
     {
-        
+         if (Id == null)
+       {
+            await BenhvienServices.CreateBenhvien(benhvien);
+        }
     }
 }

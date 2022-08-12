@@ -11,7 +11,7 @@ namespace HealthCareEasyApi.Dtos
         public string? Thongtin { get; set; }
         public string? Giatien { get; set; }
         public string? Image { get; set; }
-        public int? DichvuId { get; set; }
+        public int? Dichvu_Id { get; set; }
         public HealthCareEasyApi.Models.Dichvu dichvu { get; set; }
         
     }

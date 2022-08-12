@@ -46,7 +46,7 @@ namespace HealthCareEasyApi.Controller
                 bvdto.Benhvien_Id = item.benhvien_Id;
                 bvdto.Tenbenhvien = item.tenbenhvien;
                 bvdto.dichvu = item.dichvu;
-                bvdto.DichvuId = item.dichvuId;
+                bvdto.Dichvu_Id = item.dichvuId;
                 bvdto.Thongtin = item.thongtin;
                 bvdto.Giatien = item.giatien;
                 bvdto.Image = item.image;
@@ -64,5 +64,6 @@ namespace HealthCareEasyApi.Controller
             _context.SaveChanges();
             return Ok(benhvien);
         }
+        
     }
 }

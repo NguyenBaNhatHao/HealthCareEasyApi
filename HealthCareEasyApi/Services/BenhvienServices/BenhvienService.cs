@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using HealthCareEasyApi.Models;
+using HealthCareEasyApi.Dtos;
 using HealthCareEasyApi.Data;
 using Newtonsoft.Json;
 
@@ -26,6 +27,18 @@ namespace HealthCareEasyApi.Services.SinhvienServices
                 Benhvienservices = resutl;
             }
             
+        }
+
+        public async Task CreateBenhvien(Benhvien benhvien)
+        {
+            var resutl = await _http.PostAsJsonAsync("api/benhvien/create", benhvien);
+            await Setbenhvien(resutl);
+        }
+        private async Task Setbenhvien(HttpResponseMessage result)
+        {
+            //var response = await result.Content.ReadFromJsonAsync<List<SuperHero>>();
+            //Heroes = response;
+            _navigationManager.NavigateTo("benhvien");
         }
     }
 }
